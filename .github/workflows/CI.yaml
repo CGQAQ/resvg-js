@@ -335,7 +335,7 @@ jobs:
         run: ls -R .
         shell: bash
       - name: Test bindings
-        run: docker run --rm -v /usr/share/fonts:/usr/share/fonts -v $(pwd):/build -w /build node:${{ matrix.node }}-slim sh -c "apt install fontconfig -y && yarn test"
+        run: docker run --rm -v /usr/share/fonts:/usr/share/fonts -v $(pwd):/build -w /build node:${{ matrix.node }}-slim sh -c "apt update && apt install fontconfig -y && yarn test"
   test-linux-x64-musl-binding:
     name: Test bindings on x86_64-unknown-linux-musl - node@${{ matrix.node }}
     needs:
